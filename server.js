@@ -11,11 +11,8 @@ import { handleImage, handleApiCall } from "./controllers/image.js";
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'postgresql-concave-72084',
-        port: 5432,
-        user: 'martapbasto',
-        password: '',
-        database: 'harvey'
+        host: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
