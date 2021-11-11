@@ -24,13 +24,13 @@ app.use(express.json());
 
 app.get('/', (req, res) => { res.send('Success!') });
 
-app.post('/signin', handleSignIn(db, bcrypt));
+app.post('/signin', (req, res) => { handleSignIn(req, res, db, bcrypt) });
 
-app.post('/register', handleRegister(db, bcrypt));
+app.post('/register', (req, res) => { handleRegister(req, res, db, bcrypt) });
 
-app.get('/profile/:id', handleProfileGet(db));
+app.get('/profile/:id', (req, res) => { handleProfileGet(req, res, db) });
 
-app.put('/image', handleImage(db));
+app.put('/image', (req, res) => { handleImage(req, res, db) });
 
 app.post('/imageURL', (req, res) => { handleApiCall(req, res) });
 

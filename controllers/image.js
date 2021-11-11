@@ -14,7 +14,7 @@ export const handleApiCall = (req, res) => {
 }
 
 
-export const handleImage = (db) => (req, res) => {
+export const handleImage = (req, res, db) => {
     const { id } = req.body;
     db('users').where('id', '=', id)
         .increment('entries', 1)
